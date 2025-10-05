@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Razor Cloud - Cutting-edge hosting solutions with 99.99% uptime, enterprise-grade security, and 24/7 expert support.">
+    <meta name="keywords" content="cloud hosting, vps hosting, minecraft hosting, discord bot hosting, web hosting, dedicated servers">
+    <meta name="author" content="Razor Cloud">
+    <meta property="og:title" content="Razor Cloud | Premium Cloud Hosting Solutions">
+    <meta property="og:description" content="High performance cloud hosting with enterprise-grade infrastructure and 24/7 support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://razorcloud.com">
+    <meta property="og:image" content="https://razorcloud.com/images/og-image.jpg">
+    <title>Razor Cloud | Premium Cloud Hosting Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0047b3;
+            --primary-light: #3385ff;
+            --secondary: #00ffcc;
+            --secondary-dark: #00cc99;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --light: #f0f5ff;
+            --gray: #a0a8c0;
+            --success: #00ff9d;
+            --danger: #ff3860;
+            --warning: #ffcc00;
+            --info: #0095ff;
+            --razor-gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+            --razor-glow: 0 0 15px rgba(0, 102, 255, 0.5), 0 0 30px rgba(0, 255, 204, 0.3);
+            --razor-edge: 1px solid rgba(0, 102, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--darker);
+            color: var(--light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Razor Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: var(--razor-edge);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 5px 30px rgba(0, 102, 255, 0.2);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--razor-gradient);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .logo:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--razor-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links .btn {
+            padding: 0.6rem 1.5rem;
+            margin-left: 1rem;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(5, 5, 16, 0.8), rgba(5, 5, 16, 0.9)), 
+                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 102, 255, 0.1) 0%, rgba(5, 5, 16, 0) 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+            background: linear-gradient(to right, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            color: var(--gray);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2.2rem;
+            background: var(--razor-gradient);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--razor-glow);
+            border: var(--razor-edge);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 102, 255, 0.4), 0 0 30px rgba(0, 255, 204, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            background: linear-gradient(to right, var(--secondary), var(--secondary-dark));
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 10px 25px rgba(0, 255, 204, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDUwNTEwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxMDEwMjAiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--light);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: var(--razor-gradient);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card {
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: var(--razor-edge);
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 255, 204, 0.05));
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 102, 255, 0.2);
+            border-color: rgba(0, 102, 255, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
+            color: var(--light);
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 0;
+            background: var(--darker);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 2rem;
+            background: rgba(20, 20, 40, 0.6);
+            border: var(--razor-edge);
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--light);
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary);
+            color: var(--secondary);
+        }
+
+        .tab-btn.active {
+            background: var(--razor-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--razor-glow);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(20, 20, 40, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: var(--razor-edge);
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 102, 255, 0.2);
+            border-color: rgba(0, 102, 255, 0.5);
+        }
+
+        .service-card-popular {
+            border: 1px solid var(--secondary);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+        }
+
+        .service-card-popular .service-card-header {
+            position: relative;
+        }
+
+        .service-card-popular .service-card-header::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 0.2rem 2rem;
+            font-size: 0.7rem;
+            font-weight: bold;
+            transform: rotate(45deg);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .service-card-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.8rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.5);
+        }
+
+        .service-card-header h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .service-card-body {
+            padding: 2.2rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-features li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .service-features li:last-child {
+            border-bottom: none;
+        }
+
+        .service-features i {
+            color: var(--secondary);
+            margin-right: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-align: center;
+            margin-bottom: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--gray);
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .service-card-footer {
+            text-align: center;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--dark));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjYiPgo8cmVjdCB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDZMNiAwWk02IDBMNCAyWk0yIDRMNCAyWiIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+');
+            opacity: 0.1;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .stat-item {
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            transition: all 0.4s ease;
+            border: var(--razor-edge);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 255, 204, 0.05));
+            z-index: -1;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+            border-color: rgba(0, 102, 255, 0.5);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: var(--light);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--darker));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2IiBoZWlnaHQ9IjYiPgo8cmVjdCB3aWR0aD0iNiIgaGVpZ2h0PSI2IiBmaWxsPSIjMDAwMDAwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDZMNiAwWk02IDBMNCAyWk0yIDRMNCAyWiIgc3Ryb2tlPSIjMDAwMDAwIiBzdHJva2Utd2lkdGg9IjEiPjwvcGF0aD4KPC9zdmc+');
+            opacity: 0.1;
+        }
+
+        .cta .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 102, 255, 0.3);
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: var(--gray);
+        }
+
+        .cta .btn {
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--darker);
+            color: white;
+            padding: 5rem 0 2rem;
+            border-top: var(--razor-edge);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMDUwNTEwIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMxMDEwMjAiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-col h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+            color: var(--light);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--razor-gradient);
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .footer-about p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .footer-links i {
+            margin-right: 0.8rem;
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 2rem;
+            gap: 0.8rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            border: var(--razor-edge);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bottom a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(0, 102, 255, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(0, 102, 255, 0.8), 0 0 30px rgba(0, 255, 204, 0.5); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Razor Elements */
+        .razor-box {
+            position: relative;
+            border: var(--razor-edge);
+            box-shadow: var(--razor-glow);
+        }
+
+        .razor-box::before, .razor-box::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .razor-box::before {
+            top: -2px;
+            left: -2px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .razor-box::after {
+            bottom: -2px;
+            right: -2px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .feature-card, .service-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--dark);
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                transition: all 0.5s ease;
+                z-index: 1000;
+                padding: 6rem 2rem 2rem;
+                border-left: var(--razor-edge);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+                width: 100%;
+            }
+
+            .nav-links a {
+                padding: 0.8rem 0;
+                font-size: 1rem;
+            }
+
+            .nav-links .btn {
+                margin-left: 0;
+                margin-top: 1rem;
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                min-height: 600px;
+                padding-top: 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .services-tabs {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .tab-btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-col {
+                margin-bottom: 2rem;
+            }
+            
+            .footer-col:last-child {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="/" class="logo">
+                <i class="fas fa-server"></i>
+                <span>Razor Cloud</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="/login" class="btn btn-secondary">Client Area</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Cutting-Edge Cloud Hosting</h1>
+                <p>Experience razor-sharp performance with our premium hosting solutions powered by enterprise-grade infrastructure and 24/7 expert support.</p>
+                <div class="btn-group">
+                    <a href="#services" class="btn btn-secondary pulse">Get Started</a>
+                    <a href="#features" class="btn btn-outline">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Razor Cloud?</h2>
+                <p>We combine enterprise-grade technology with consumer-friendly pricing to deliver exceptional hosting experiences.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card razor-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Blazing Speed</h3>
+                    <p>Our high-performance NVMe SSD servers and premium networks ensure your applications run at maximum velocity with minimal latency.</p>
+                </div>
+                <div class="feature-card razor-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Enterprise Security</h3>
+                    <p>Advanced DDoS protection, automated backups, and hardened infrastructure keep your data secure from all threats.</p>
+                </div>
+                <div class="feature-card razor-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Expert Support</h3>
+                    <p>Our certified support team is available around the clock to assist you with any technical issues or questions.</p>
+                </div>
+                <div class="feature-card razor-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>99.99% Uptime</h3>
+                    <p>We guarantee industry-leading uptime with redundant infrastructure and proactive monitoring systems.</p>
+                </div>
+                <div class="feature-card razor-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Global Network</h3>
+                    <p>Choose from 15+ strategically located data centers worldwide to minimize latency for your audience.</p>
+                </div>
+                <div class="feature-card razor-box">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>Intuitive Control</h3>
+                    <p>Our powerful yet user-friendly control panel makes server management effortless for all skill levels.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Hosting Solutions</h2>
+                <p>Select the perfect hosting package tailored to your specific requirements and budget.</p>
+            </div>
+            <div class="services-tabs">
+                <button class="tab-btn active" data-tab="minecraft">Minecraft</button>
+                <button class="tab-btn" data-tab="vps">VPS</button>
+                <button class="tab-btn" data-tab="rdp">RDP</button>
+                <button class="tab-btn" data-tab="bot">Bots</button>
+            </div>
+            
+            <!-- Minecraft Hosting -->
+            <div class="tab-content active" id="minecraft-tab">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>Starter</h3>
+                            <p>Perfect for small communities</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 2GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 1 vCPU Core</li>
+                                <li><i class="fas fa-check"></i> 25GB NVMe SSD</li>
+                                <li><i class="fas fa-check"></i> Unlimited Slots</li>
+                                <li><i class="fas fa-check"></i> Full FTP Access</li>
+                                <li><i class="fas fa-check"></i> 1GB Backup Space</li>
+                            </ul>
+                            <div class="price">$5.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card service-card-popular">
+                        <div class="service-card-header">
+                            <h3>Professional</h3>
+                            <p>Recommended for most servers</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 4GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 2 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 50GB NVMe SSD</li>
+                                <li><i class="fas fa-check"></i> Free Subdomain</li>
+                                <li><i class="fas fa-check"></i> Priority Support</li>
+                                <li><i class="fas fa-check"></i> 5GB Backup Space</li>
+                            </ul>
+                            <div class="price">$11.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>Enterprise</h3>
+                            <p>For large communities</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 8GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 4 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 100GB NVMe SSD</li>
+                                <li><i class="fas fa-check"></i> Dedicated IP</li>
+                                <li><i class="fas fa-check"></i> 24/7 Monitoring</li>
+                                <li><i class="fas fa-check"></i> 10GB Backup Space</li>
+                            </ul>
+                            <div class="price">$21.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VPS Hosting -->
+            <div class="tab-content" id="vps-tab">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>VPS Starter</h3>
+                            <p>Great for small projects</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 2GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 1 vCPU Core</li>
+                                <li><i class="fas fa-check"></i> 40GB NVMe SSD</li>
+                                <li><i class="fas fa-check"></i> 2TB Bandwidth</li>
+                                <li><i class="fas fa-check"></i> Full Root Access</li>
+                                <li><i class="fas fa-check"></i> 1 IPv4 Address</li>
+                            </ul>
+                            <div class="price">$8.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card service-card-popular">
+                        <div class="service-card-header">
+                            <h3>VPS Business</h3>
+                            <p>For growing applications</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 4GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 2 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 80GB NVMe SSD</li>
+                                <li><i class="fas fa-check"></i> 4TB Bandwidth</li>
+                                <li><i class="fas fa-check"></i> 2 IPv4 Addresses</li>
+                                <li><i class="fas fa-check"></i> Weekly Backups</li>
+                            </ul>
+                            <div class="price">$16.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>VPS Enterprise</h3>
+                            <p>High-performance needs</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 8GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 4 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 160GB NVMe SSD</li>
+                                <li><i class="fas fa-check"></i> 8TB Bandwidth</li>
+                                <li><i class="fas fa-check"></i> 24/7 Monitoring</li>
+                                <li><i class="fas fa-check"></i> Daily Backups</li>
+                            </ul>
+                            <div class="price">$32.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RDP Hosting -->
+            <div class="tab-content" id="rdp-tab">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>RDP Basic</h3>
+                            <p>For light usage</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 4GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 2 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 50GB SSD Storage</li>
+                                <li><i class="fas fa-check"></i> Windows 10/Server</li>
+                                <li><i class="fas fa-check"></i> 1Gbps Port</li>
+                                <li><i class="fas fa-check"></i> Admin Access</li>
+                            </ul>
+                            <div class="price">$12.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card service-card-popular">
+                        <div class="service-card-header">
+                            <h3>RDP Advanced</h3>
+                            <p>For power users</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 8GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 4 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 100GB SSD Storage</li>
+                                <li><i class="fas fa-check"></i> Windows Server 2019</li>
+                                <li><i class="fas fa-check"></i> 2Gbps Port</li>
+                                <li><i class="fas fa-check"></i> Priority Support</li>
+                            </ul>
+                            <div class="price">$24.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>RDP Premium</h3>
+                            <p>For demanding workloads</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 16GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 8 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 200GB SSD Storage</li>
+                                <li><i class="fas fa-check"></i> Windows Server 2022</li>
+                                <li><i class="fas fa-check"></i> 5Gbps Port</li>
+                                <li><i class="fas fa-check"></i> Dedicated Resources</li>
+                            </ul>
+                            <div class="price">$49.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bot Hosting -->
+            <div class="tab-content" id="bot-tab">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>Bot Starter</h3>
+                            <p>For small bots</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 512MB RAM</li>
+                                <li><i class="fas fa-check"></i> 1 vCPU Core</li>
+                                <li><i class="fas fa-check"></i> 10GB SSD Storage</li>
+                                <li><i class="fas fa-check"></i> 24/7 Uptime</li>
+                                <li><i class="fas fa-check"></i> Node.js/Python</li>
+                                <li><i class="fas fa-check"></i> Basic Support</li>
+                            </ul>
+                            <div class="price">$3.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card service-card-popular">
+                        <div class="service-card-header">
+                            <h3>Bot Pro</h3>
+                            <p>For medium bots</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 1GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 1 vCPU Core</li>
+                                <li><i class="fas fa-check"></i> 20GB SSD Storage</li>
+                                <li><i class="fas fa-check"></i> Auto Restart</li>
+                                <li><i class="fas fa-check"></i> Multiple Bot Support</li>
+                                <li><i class="fas fa-check"></i> Priority Support</li>
+                            </ul>
+                            <div class="price">$6.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-card-header">
+                            <h3>Bot Enterprise</h3>
+                            <p>For large scale bots</p>
+                        </div>
+                        <div class="service-card-body">
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 2GB DDR4 RAM</li>
+                                <li><i class="fas fa-check"></i> 2 vCPU Cores</li>
+                                <li><i class="fas fa-check"></i> 40GB SSD Storage</li>
+                                <li><i class="fas fa-check"></i> Custom Configurations</li>
+                                <li><i class="fas fa-check"></i> Dedicated Resources</li>
+                                <li><i class="fas fa-check"></i> 24/7 Monitoring</li>
+                            </ul>
+                            <div class="price">$12.99<span>/month</span></div>
+                            <div class="service-card-footer">
+                                <a href="#" class="btn">Order Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-title">
+                <h2>By The Numbers</h2>
+                <p>Join thousands of satisfied customers who trust Razor Cloud for their hosting needs.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item razor-box">
+                    <div class="stat-number" data-count="8500">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-item razor-box">
+                    <div class="stat-number" data-count="99.99">0</div>
+                    <div class="stat-label">Uptime %</div>
+                </div>
+                <div class="stat-item razor-box">
+                    <div class="stat-number" data-count="18">0</div>
+                    <div class="stat-label">Data Centers</div>
+                </div>
+                <div class="stat-item razor-box">
+                    <div class="stat-number" data-count="24">0</div>
+                    <div class="stat-label">Support Hours</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Experience Razor-Sharp Hosting?</h2>
+            <p>Join our growing community of satisfied customers and deploy your servers in minutes with our lightning-fast infrastructure.</p>
+            <a href="#services" class="btn btn-secondary pulse">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Razor Cloud</h3>
+                    <div class="footer-about">
+                        <p>Providing premium hosting solutions since 2018 with a focus on performance, reliability, and exceptional customer support.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-discord"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> Testimonials</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Hosting</h3>
+                    <ul class="footer-links">
+                        <li><a href="#minecraft-tab"><i class="fas fa-chevron-right"></i> Minecraft Hosting</a></li>
+                        <li><a href="#vps-tab"><i class="fas fa-chevron-right"></i> VPS Hosting</a></li>
+                        <li><a href="#rdp-tab"><i class="fas fa-chevron-right"></i> RDP Hosting</a></li>
+                        <li><a href="#bot-tab"><i class="fas fa-chevron-right"></i> Bot Hosting</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Dedicated Servers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:support@razorcloud.com"><i class="fas fa-envelope"></i> support@razorcloud.com</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Live Chat</a></li>
+                        <li><a href="#"><i class="fas fa-ticket-alt"></i> Support Ticket</a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i> Discord Server</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Global Data Centers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Razor Cloud. All Rights Reserved. | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a> | <a href="#">SLA</a></p>
+                <p>Designed with <i class="fas fa-heart" style="color: var(--danger);"></i> by the Razor Cloud Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Service Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Counter Animation
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsSection = document.querySelector('.stats');
+
+        function animateCounters() {
+            const rect = statsSection.getBoundingClientRect();
+            const isVisible = (rect.top <= window.innerHeight / 2) && 
+                             (rect.bottom >= window.innerHeight / 2);
+            
+            if (isVisible) {
+                statNumbers.forEach(stat => {
+                    const target = parseFloat(stat.getAttribute('data-count'));
+                    const suffix = stat.textContent.includes('%') ? '%' : '';
+                    const duration = 2000;
+                    const startTime = Date.now();
+                    
+                    if (!stat.hasAttribute('data-animated')) {
+                        stat.setAttribute('data-animated', 'true');
+                        
+                        const animate = () => {
+                            const now = Date.now();
+                            const progress = Math.min((now - startTime) / duration, 1);
+                            const value = progress * target;
+                            
+                            if (suffix === '%') {
+                                stat.textContent = `${value.toFixed(progress < 1 ? 1 : 2)}${suffix}`;
+                            } else {
+                                stat.textContent = `${Math.floor(value)}${suffix}`;
+                            }
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(animate);
+                            }
+                        };
+                        
+                        animate();
+                    }
+                });
+            }
+        }
+
+        window.addEventListener('scroll', animateCounters);
+        window.addEventListener('load', animateCounters);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Add razor box effect to elements
+        document.querySelectorAll('.razor-box').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                this.style.boxShadow = '0 0 20px rgba(0, 102, 255, 0.5), 0 0 40px rgba(0, 255, 204, 0.3)';
+            });
+            
+            box.addEventListener('mouseleave', function() {
+                this.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
